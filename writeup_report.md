@@ -54,9 +54,11 @@ I only use color hist and HOG features. Spatial features are not used since I th
 I explored color spaces using `YUV` with 32 hist bins. The `skimage.hog()` parameters for HOG feature extraction are (`orientations = 10`, `pixels_per_cell = 16`, and `cells_per_block = 2`). I attached two example figures about HOG feature extraction. One for `vehicle` and one for `non-vehicle`.
 
 Original images:
+
 ![alt text][image2]
 
 HOG images:
+
 ![alt text][image3] 
 
 
@@ -93,18 +95,23 @@ The classifier information is:
 I combined different scale sliding windows and searched in different region. Actually, I noticed that the vehicles appeared in area with y from 350 to 450 are usually small and the vehicles appeared in area with y from 400 to 600 are usually large. In this case, some small scale sliding windows were used in middle area of the image and large sliding windows wee used in the whole bottom half of image. There are some different scale sliding windows' results:
 
 scale = 1.1
+
 ![alt text][image4]
 
 scale = 1.2
+
 ![alt text][image5]
 
 scale = 1.5
+
 ![alt text][image6]
 
 scale = 2.0
+
 ![alt text][image7]
 
 scale = 2.5
+
 ![alt text][image8]
 
 Finally, I combined all different scale sliding windows and the result for one of the test images is
@@ -114,6 +121,7 @@ Finally, I combined all different scale sliding windows and the result for one o
 To reduce the false positive, I used heat map to filter out those detected non-vehicles. Through many times experiments, I finally choose heat map threshold with 2, which provided good performance for all 6 test images. The heat map illustration is shown:
 
 Heat map for test image 6
+
 ![alt text][image10]
 
 
